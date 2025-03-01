@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Describe your site" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="shortcut icon" href="./img/favicon.svg" type="image/x-icon" />
+    <title>Multiplication Trainer</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="#" class="logo__link">
+          <svg
+            class="math-logo"
+            width="300"
+            height="150"
+            viewBox="0 0 300 150"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <!-- Калькулятор -->
+            <rect
+              class="calc-body"
+              x="20"
+              y="20"
+              width="100"
+              height="120"
+              rx="10"
+            />
+            <!-- Екран калькулятора -->
+            <rect class="calc-screen" x="30" y="30" width="80" height="30" />
+            <!-- Кнопки калькулятора -->
+            <rect class="calc-button" x="30" y="70" width="15" height="15" />
+            <rect class="calc-button" x="50" y="70" width="15" height="15" />
+            <rect class="calc-button" x="70" y="70" width="15" height="15" />
+            <rect class="calc-button" x="90" y="70" width="15" height="15" />
+            <rect class="calc-button" x="30" y="90" width="15" height="15" />
+            <rect class="calc-button" x="50" y="90" width="15" height="15" />
+            <rect class="calc-button" x="70" y="90" width="15" height="15" />
+            <rect class="calc-button" x="90" y="90" width="15" height="15" />
+            <!-- Текст "simulator" вертикально з JetBrains Mono -->
+            <text
+              class="simulator-text"
+              x="130"
+              y="40"
+              font-family="JetBrains Mono, monospace"
+              font-size="30"
+              font-weight="bold"
+            >
+              si
+            </text>
+            <text
+              class="simulator-text"
+              x="130"
+              y="70"
+              font-family="JetBrains Mono, monospace"
+              font-size="30"
+              font-weight="bold"
+            >
+              mu
+            </text>
+            <text
+              class="simulator-text"
+              x="130"
+              y="100"
+              font-family="JetBrains Mono, monospace"
+              font-size="30"
+              font-weight="bold"
+            >
+              la
+            </text>
+            <text
+              class="simulator-text"
+              x="130"
+              y="130"
+              font-family="JetBrains Mono, monospace"
+              font-size="30"
+              font-weight="bold"
+            >
+              tor
+            </text>
+          </svg>
+        </a>
+      </div>
+      <nav class="nav visually-hidden" data-box="menu">
+        <button class="button button__menu" data-menu="main">Simulator</button>
+        <button class="button button__menu" data-menu="board">
+          Leaderboard
+        </button>
+      </nav>
+      <div class="lang" data-box="lang">
+        <button class="button button__lang" data-lang="en">en</button>
+        <button class="button button__lang" data-lang="ua">ua</button>
+      </div>
+    </header>
+    <main>
+      <ul class="list">
+        <li class="component main" data-box="main">
+          <h1 class="main__title" data-mainTitle>
+            Hi! You are on the multiplication simulator page!
+          </h1>
+          <p class="main__paragraph" data-mainParagraph>
+            Press the start and train your brains!
+          </p>
+          <button class="button button__start" data-start="yes">
+            Start Exercise
+          </button>
+        </li>
+        <li class="component app visually-hidden" data-box="app">
+          <div class="settings" data-box="settings">
+            <div class="settings__inner-left" data-box="settings-radio">
+              <p class="settings__paragraph" data-paragraph="multiplicand">
+                Multiplicand
+              </p>
+              <div class="settings settings__one">
+                <div class="setting__one-inner">
+                  <input
+                    id="multiplicand-round"
+                    type="radio"
+                    class="input input__radio"
+                    data-mode-multiplicand="round"
+                    name="multiplicandMain"
+                  />
+                  <label
+                    for="multiplicand-round"
+                    class="label label__setting"
+                    data-label-multiplicand="round"
+                    >Round</label
+                  >
+                </div>
+                <div class="setting__one-inner">
+                  <input
+                    id="multiplicand-random"
+                    type="radio"
+                    class="input input__radio"
+                    data-mode-multiplicand="random"
+                    name="multiplicandMain"
+                  />
+                  <label
+                    for="multiplicand-random"
+                    class="label label__setting"
+                    data-label-multiplicand="random"
+                    >Random</label
+                  >
+                </div>
+              </div>
+              <div class="settings settings__one settings__one-sub">
+                <div class="setting__one-inner-sub">
+                  <input
+                    id="multiplicand-random-one"
+                    type="radio"
+                    class="input input__radio"
+                    data-mode-submultiplicand="one"
+                    name="multiplicandSub"
+                    disabled
+                  />
+                  <label
+                    for="multiplicand-random-one"
+                    class="label label__setting"
+                    data-label-submultiplicand="one"
+                    >One number</label
+                  >
+                </div>
+                <div class="setting__one-inner-sub">
+                  <input
+                    id="multiplicand-random-two"
+                    type="radio"
+                    class="input input__radio"
+                    data-mode-submultiplicand="two"
+                    name="multiplicandSub"
+                    disabled
+                  />
+                  <label
+                    for="multiplicand-random-two"
+                    class="label label__setting"
+                    data-label-submultiplicand="two"
+                    >Two numbers</label
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="mode settings__mode" data-box="mode">
+              <button class="button button__mode" data-mode="auto">Auto</button>
+              <button class="button button__mode" data-mode="manual">
+                Manual
+              </button>
+              <button class="button button__mode" data-mode="challenge">
+                Challenge
+              </button>
+            </div>
+            <div class="settings__inner-right" data-box="settings-radio">
+              <p class="settings__paragraph" data-paragraph="multiplier">
+                Multiplier
+              </p>
+              <div class="settings settings__two">
+                <div class="setting__two-inner">
+                  <input
+                    id="multiplier-round"
+                    type="radio"
+                    class="input input__radio"
+                    data-mode-multiplier="round"
+                    name="multiplierMain"
+                  />
+                  <label
+                    for="multiplier-round"
+                    class="label label__setting"
+                    data-label-multiplier="round"
+                    >Round</label
+                  >
+                </div>
+                <div class="setting__two-inner">
+                  <input
+                    id="multiplier-random"
+                    type="radio"
+                    class="input input__radio"
+                    data-mode-multiplier="random"
+                    name="multiplierMain"
+                  />
+                  <label
+                    for="multiplier-random"
+                    class="label label__setting"
+                    data-label-multiplier="random"
+                    >Random</label
+                  >
+                </div>
+              </div>
+              <div class="settings settings__two settings__two-sub">
+                <div class="setting__two-inner-sub">
+                  <input
+                    id="multiplier-random-one"
+                    type="radio"
+                    class="input input__radio"
+                    data-mode-submultiplier="one"
+                    name="multiplierSub"
+                    disabled
+                  />
+                  <label
+                    for="multiplier-random-one"
+                    class="label label__setting"
+                    data-label-submultiplier="one"
+                    >One number</label
+                  >
+                </div>
+                <div class="setting__two-inner-sub">
+                  <input
+                    id="multiplier-random-two"
+                    type="radio"
+                    class="input input__radio"
+                    data-mode-submultiplier="two"
+                    name="multiplierSub"
+                    disabled
+                  />
+                  <label
+                    for="multiplier-random-two"
+                    class="label label__setting"
+                    data-label-submultiplier="two"
+                    >Two numbers</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="exercise" data-box="exercise">
+            <div class="exercise__inner">
+              <div class="exercise__inner-factors">
+                <input
+                  type="number"
+                  class="input input__factor"
+                  data-factor="one"
+                  placeholder="1"
+                  disabled
+                />
+                <span class="span span__sign" data-sign="*">*</span>
+                <input
+                  type="number"
+                  class="input input__factor"
+                  data-factor="two"
+                  placeholder="1"
+                  disabled
+                />
+              </div>
+              <div>
+                <span class="span span__sign" data-sign="=">=</span>
+                <input
+                  type="number"
+                  class="input input__factor input__factor-product"
+                  data-factor="product"
+                  disabled
+                />
+              </div>
+              <button class="button button__answer" data-exercise="answer">
+                <div class="exercise__mark" data-exercise="check">
+                  <img
+                    class="mark__image"
+                    width="30"
+                    src="./img/green-check.svg"
+                    alt="green-check"
+                  />
+                </div>
+                <div
+                  class="exercise__mark visually-hidden"
+                  data-exercise="cross"
+                >
+                  <img
+                    class="mark__image"
+                    width="30"
+                    src="./img/red-cross.svg"
+                    alt="red-cross"
+                  />
+                </div>
+                <div
+                  class="exercise__mark visually-hidden"
+                  data-exercise="question"
+                >
+                  <img
+                    class="mark__image"
+                    width="30"
+                    src="./img/question-mark.svg"
+                    alt="question-mark"
+                  />
+                </div>
+              </button>
+            </div>
+            <button class="button button__next" data-button="next">
+              Next!
+            </button>
+          </div>
+          <div class="timer" data-box="timer">
+            <button
+              class="button button__timer button__timer-switch"
+              data-timer="switch"
+            >
+              Enable the timer
+            </button>
+            <div class="timer__inner">
+              <label for="timer" class="label label__timer" data-label-timer
+                >Set ur timer for exercise</label
+              >
+              <div class="timer__input">
+                <div class="timer__clock">
+                  <p class="timer__minutes" data-timer="mm">00</p>
+                  <span class="span timer__separator">:</span>
+                  <p class="timer__seconds" data-timer="ss">00</p>
+                </div>
+                <input
+                  id="timer"
+                  type="text"
+                  maxlength="4"
+                  class="input input__timer"
+                  data-timer="input"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+            <button class="button button__timer" data-timer="set" disabled>
+              Set!
+            </button>
+          </div>
+        </li>
+        <li class="component leaderboard visually-hidden" data-box="board">
+          <ul class="list" data-board="title">
+            <li class="item item__title" data-item="title">
+              <p data-board="name" class="item__name">Player</p>
+              <p data-board="score" class="item__score">Score</p>
+              <p data-board="right" class="item__right">Right</p>
+              <p data-board="wrong" class="item__wrong">Wrong</p>
+              <p data-board="time" class="item__time">Time</p>
+            </li>
+            <li class="item__info">
+              <ol class="list__user" data-board="list"></ol>
+            </li>
+          </ul>
+          <button class="button button__board" data-board="reset">Reset</button>
+        </li>
+        <li class="component overlay visually-hidden" data-modal="modal">
+          <div class="modal">
+            <h2 class="modal__data modal__data-title" data-modal="title">
+              Greets!<br />
+              Here's your result
+            </h2>
+            <ul class="modal__list" data-modal="markUp"></ul>
+            <button class="button modal__button" data-modal="button">Ok</button>
+          </div>
+        </li>
+        <li
+          class="component overlay overlay__tutorial visually-hidden"
+          data-modal="tutorial"
+        >
+          <div class="elem zero visually-hidden" data-tutor="0">
+            <h2 class="tutor__title zero__title">
+              Що тут робити?<br />
+              Зараз потрібно встановити таймер
+            </h2>
+            <p class="tutor__text zero__time">Клікай та задавай час</p>
+          </div>
+          <div class="elem first visually-hidden" data-tutor="1">
+            <p class="tutor__text first__off">Грай з таймером або без</p>
+            <p class="tutor__text first__on">Вмикай!</p>
+          </div>
+          <div class="elem second visually-hidden" data-tutor="2">
+            <p class="tutor__text second__input">
+              Вводи відповідь і тисни "Enter" або на кнопку
+            </p>
+          </div>
+          <div class="elem third visually-hidden" data-tutor="3">
+            <p class="tutor__text third__settings">
+              Тут встанови рівень складності та обери режим гри
+            </p>
+          </div>
+          <div class="elem four visually-hidden" data-tutor="4">
+            <p class="tutor__text four__menu">
+              Перемикай між вправами та рекордами <br />
+              (режим виклику)
+            </p>
+          </div>
+          <div class="elem five visually-hidden" data-tutor="5">
+            <p class="tutor__text five__manual">
+              Тут можна написати приклад і дізнатись відповідь
+            </p>
+          </div>
+          <div class="elem six visually-hidden" data-tutor="6">
+            <p class="tutor__text six__challenge">
+              Одразу пиши відповідь і погнали!
+            </p>
+            <p class="tutor__text six__time">Таймер стартує автоматично</p>
+          </div>
+          <div class="elem seven visually-hidden" data-tutor="7">
+            <p class="tutor__text seven__settings">
+              Важкість підвищується з кожною правильною відповіддю!
+            </p>
+          </div>
+          <div class="elem eight visually-hidden" data-tutor="8">
+            <p class="tutor__text eight__text">
+              Перевірте свої математичні здібності! Погнали!
+            </p>
+          </div>
+
+          <button class="button button__tutor" data-tutor="next">Далі</button>
+        </li>
+      </ul>
+    </main>
+    <footer>
+      <button class="button link__autor" data-button="reset">Reset</button>
+      <a
+        class="link link__autor button"
+        target="_blank"
+        href="https://github.com/Jaelouss"
+        >Jaelous</a
+      >
+    </footer>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>

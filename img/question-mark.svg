@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <!-- Нерівне коло з жовтим/оранжевим фоном -->
+  <path d="M150,10 
+    C120,5 70,25 35,80 
+    C10,140 20,200 65,250 
+    C110,300 190,305 235,260 
+    C280,215 300,160 285,110 
+    C270,60 220,15 150,10" 
+    fill="#FFA500" 
+    stroke="#000000" 
+    stroke-width="8" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+    stroke-dasharray="1 0"
+    pathLength="100"
+    stroke-dashoffset="0" />
+  
+  <!-- Злегка кривий знак питання -->
+  <path d="M115,180 
+    C115,170 120,160 125,160
+    C130,160 135,155 145,140
+    C155,125 160,115 160,105
+    C160,95 155,85 145,80
+    C135,75 125,75 115,80
+    C105,85 100,95 100,105" 
+    fill="none" 
+    stroke="#000000" 
+    stroke-width="12" 
+    stroke-linecap="round" 
+    stroke-linejoin="round" />
+    
+  <!-- Крапка внизу знака питання -->
+  <circle cx="115" cy="200" r="8" fill="#000000" />
+</svg>

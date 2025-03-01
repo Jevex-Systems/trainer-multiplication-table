@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <!-- Трохи нерівне червоне коло з чорним контуром -->
+  <path d="M150,10 
+    C120,5 70,25 35,80 
+    C10,140 20,200 65,250 
+    C110,300 190,305 235,260 
+    C280,215 300,160 285,110 
+    C270,60 220,15 150,10" 
+    fill="#E74C3C" 
+    stroke="#000000" 
+    stroke-width="8" 
+    stroke-linecap="round" 
+    stroke-linejoin="round"
+    stroke-dasharray="1 0"
+    pathLength="100"
+    stroke-dashoffset="0" />
+  
+  <!-- Помірно-нерівний хрестик -->
+  <path d="M90,90 
+    C100,100 120,120 135,135 
+    C150,150 170,170 180,180" 
+    fill="none" 
+    stroke="#000000" 
+    stroke-width="12" 
+    stroke-linecap="round" 
+    stroke-linejoin="round" />
+    
+  <path d="M180,90 
+    C165,105 150,120 135,135 
+    C120,150 105,165 90,180" 
+    fill="none" 
+    stroke="#000000" 
+    stroke-width="12" 
+    stroke-linecap="round" 
+    stroke-linejoin="round" />
+</svg>
